@@ -25,6 +25,7 @@
     "@electron-toolkit/utils": "^4.0.0",
     "antd": "^5.24.1",
     "normalize.css": "^8.0.1",
+    "react-activation": "^0.13.0",
     "react-router-dom": "6.14.2",
     "styled-components": "^6.1.15"
   },
@@ -38,6 +39,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "electron": "^34.2.0",
     "electron-builder": "^25.1.8",
+    "electron-updater": "^6.3.9",
     "electron-vite": "^3.0.0",
     "eslint": "^9.20.1",
     "eslint-plugin-react": "^7.37.4",

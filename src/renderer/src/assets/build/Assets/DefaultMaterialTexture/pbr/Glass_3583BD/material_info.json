@@ -1,0 +1,80 @@
+{
+    "category_name": "glass",
+    "name": "Glass_3583BD",
+    "id": "1731482145339289602",
+    "type": "Pbr_SG",
+    "parameters": [
+        {
+            "name": "albedo",
+            "value": [
+                1,
+                1,
+                1
+            ]
+        },
+        {
+            "name": "specular",
+            "value": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "glossiness",
+            "value": 0.5
+        },
+        {
+            "name": "emissive",
+            "value": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "alpha",
+            "value": 1.0
+        },
+        {
+            "name": "alpha_cutoff",
+            "value": 1.0
+        },
+        {
+            "name": "alpha_mode",
+            "value": "Opaque"
+        },
+        {
+            "name": "specular_texture",
+            "value": "specular_texture.jpg"
+        },
+        {
+            "name": "glossiness_texture",
+            "value": "glossiness_texture.jpg"
+        },
+        {
+            "name": "emissive_texture",
+            "value": ""
+        },
+        {
+            "name": "albedo_texture",
+            "value": "albedo_texture.jpg"
+        },
+        {
+            "name": "normal_texture",
+            "value": "normal_texture.jpg"
+        },
+        {
+            "name": "preview",
+            "value": "preview.jpg"
+        },
+        {
+            "name": "opacity_texture",
+            "value": "opacity_texture.jpg"
+        },
+        {
+            "name": "merged_opacity_texture",
+            "value": "merged_opacity_texture.png"
+        }
+    ]
+}
