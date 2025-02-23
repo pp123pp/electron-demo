@@ -1,93 +1,97 @@
-// import {
-//     UploadOutlined,
-//     UserOutlined,
-//     VideoCameraOutlined,
-// } from "@ant-design/icons";
-// import type { MenuProps } from "antd";
-// import { Layout, Menu } from "antd";
-// import React from "react";
-// import { Link, Outlet } from "react-router-dom";
-
-// const { Content, Sider } = Layout;
-
-// const siderStyle: React.CSSProperties = {
-//     overflow: "auto",
-//     height: "100vh",
-//     position: "sticky",
-//     insetInlineStart: 0,
-//     top: 0,
-//     bottom: 0,
-//     scrollbarWidth: "thin",
-//     scrollbarGutter: "stable",
-// };
-
-// const items: MenuProps["items"] = [
-//     { key: "1", icon: <UserOutlined />, label: <Link to="/">Home</Link> },
-//     {
-//         key: "2",
-//         icon: <VideoCameraOutlined />,
-//         label: <Link to="/web3DView">Web3DView</Link>,
-//     },
-//     {
-//         key: "3",
-//         icon: <UploadOutlined />,
-//         label: <Link to="/dataTransform">数据处理</Link>,
-//     },
-// ];
-
-// const App: React.FC = () => {
-//     return (
-//         <Layout hasSider>
-//             <Sider style={siderStyle}>
-//                 <div className="demo-logo-vertical" />
-//                 <Menu
-//                     theme="dark"
-//                     mode="inline"
-//                     defaultSelectedKeys={["1"]}
-//                     items={items}
-//                 />
-//             </Sider>
-//             <Layout>
-//                 <Content>
-//                     <Outlet />
-//                 </Content>
-//             </Layout>
-//         </Layout>
-//     );
-// };
-
-// export default App;
-
-import DataTransform from "@renderer/pages/DataTransform";
-import Web3DView from "@renderer/pages/Web3DView";
-import { Tabs } from "antd";
+import {
+    UploadOutlined,
+    UserOutlined,
+    VideoCameraOutlined,
+} from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Layout, Menu } from "antd";
 import React from "react";
-import { TabsWrapper } from "./style";
+import { Link, Outlet } from "react-router-dom";
 
-const items = [
+const { Content, Sider } = Layout;
+
+const siderStyle: React.CSSProperties = {
+    overflow: "auto",
+    height: "100vh",
+    position: "sticky",
+    insetInlineStart: 0,
+    top: 0,
+    bottom: 0,
+    scrollbarWidth: "thin",
+    scrollbarGutter: "stable",
+};
+
+const openNewWindow = (route: string) => {
+    window.electron.ipcRenderer.send("open-child-window", route);
+};
+
+const items: MenuProps["items"] = [
+    { key: "1", icon: <UserOutlined />, label: <Link to="/">Home</Link> },
     {
-        label: "Web3DView",
-        key: "1",
-        children: <Web3DView />,
+        key: "2",
+        icon: <VideoCameraOutlined />,
+        label: <Link to="/web3DView">web3DView</Link>,
     },
     {
-        label: "数据处理",
-        key: "2",
-        children: <DataTransform />,
+        key: "3",
+        icon: <UploadOutlined />,
+        label: <div onClick={() => openNewWindow("/web3DView")}>三维可视</div>,
     },
 ];
 
 const App: React.FC = () => {
     return (
-        <TabsWrapper>
-            <Tabs
-                defaultActiveKey="1"
-                tabPosition="left"
-                style={{ height: "100vh" }}
-                items={items}
-            />
-        </TabsWrapper>
+        <Layout hasSider>
+            <Sider style={siderStyle}>
+                <div className="demo-logo-vertical" />
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    defaultSelectedKeys={["1"]}
+                    items={items}
+                />
+            </Sider>
+            <Layout>
+                <Content>
+                    <Outlet />
+                </Content>
+            </Layout>
+        </Layout>
     );
 };
 
 export default App;
+
+// import DataTransform from "@renderer/pages/DataTransform";
+// import Web3DView from "@renderer/pages/Web3DView";
+// import { Tabs } from "antd";
+// import React from "react";
+// import { TabsWrapper } from "./style";
+
+// const items = [
+//     {
+//         label: "Web3DView",
+//         key: "1",
+//         children: <Web3DView />,
+//     },
+//     {
+//         label: "数据处理",
+//         key: "2",
+//         children: <DataTransform />,
+//     },
+// ];
+
+// const App: React.FC = () => {
+//     return (
+//         <TabsWrapper>
+//             <Tabs
+//                 defaultActiveKey="1"
+//                 tabPosition="left"
+//                 style={{ height: "100vh" }}
+//                 items={items}
+//             />
+//         </TabsWrapper>
+//     );
+// };
+
+// export default App;

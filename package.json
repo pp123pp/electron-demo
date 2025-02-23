@@ -27,7 +27,8 @@
     "normalize.css": "^8.0.1",
     "react-activation": "^0.13.0",
     "react-router-dom": "6.14.2",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.15",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",

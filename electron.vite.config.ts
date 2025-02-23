@@ -20,9 +20,9 @@ export default defineConfig(({ mode }) => {
                     env.VITE_ENGINE_BASE_URL,
                 ),
             },
-            server: {
-                hmr: false,
-            },
+            // server: {
+            //     hmr: false,
+            // },
             resolve: {
                 alias: {
                     "@renderer": resolve("src/renderer/src"),

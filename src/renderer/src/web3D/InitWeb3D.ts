@@ -1,4 +1,6 @@
 import VEngine from "@renderer/assets/build/VEngine.module";
+import { useWeb3DStore } from "@renderer/store/Web3D";
+import CONSTANTS from "./CONSTANTS";
 
 export default class InitWeb3D {
     viewer: VEngine.Viewer;
@@ -12,9 +14,22 @@ export default class InitWeb3D {
             env: "fat",
         });
 
+        CONSTANTS.viewer = this.viewer;
+        CONSTANTS.scene = this.viewer.scene;
+        CONSTANTS.camera = this.viewer.camera;
+
         this.eventHandler = new VEngine.ScreenSpaceEventHandler(
             this.viewer.container,
         );
+
+        useWeb3DStore.setState((state) => ({
+            viewer: this.viewer,
+            camera: this.viewer.camera,
+            scene: this.viewer.scene,
+            eventHandler: this.eventHandler,
+        }));
+
+        CONSTANTS.eventHandler = this.eventHandler;
 
         this.viewer.extend(VEngine.mapSelectEventMixin);
 
@@ -24,17 +39,7 @@ export default class InitWeb3D {
 
         let model = new VEngine.Model({
             useDefaultView: false,
-            // url: 'https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com/capacity-model/models_0730/P7000/01-gz/header.json',
-            // url: 'https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com/capacity-model/models_0730/P7000/01-gz/header.json',
-
-            // url: 'https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com/capacity-model/models_0730/P7819/01-gz/header.json',
-            // url: './data/2/header.json',
-            // url: 'http://localhost:8888/gz/04-gz/header.json',
-            url: "https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com/capacity-model/models_0730/P0001-01/02-gz/header.json",
-            // url: "./model/header.json",
-
-            // url: 'https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com/capacity-model/models_0730/P1207/01-gz/header.json',
-            // url: 'https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com:443/capacity-model/models_0730/zyctest/P1207/01-gz/header.json',
+            url: "http://localhost:8888/model/header.json",
         });
 
         let viewer = this.viewer;

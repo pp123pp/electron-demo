@@ -21,9 +21,9 @@ const router = createHashRouter([
         children: [
             { index: true, element: withSuspense(Home) }, // 默认子路由
             { path: "dataTransform", element: withSuspense(DataTransform) },
-            { path: "web3DView", element: withSuspense(Web3DView) },
         ],
     },
+    { path: "web3DView", element: withSuspense(Web3DView) },
 ]);
 
 export default router;
