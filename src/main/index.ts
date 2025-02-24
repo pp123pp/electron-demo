@@ -36,15 +36,15 @@ function createWindow(): void {
     }
 }
 
-let childWindow: BrowserWindow | null = null;
+// let childWindow: BrowserWindow | null = null;
 // 创建子窗口（指定路由）
 const createChildWindow = (route: string) => {
-    if (childWindow) {
-        childWindow.focus();
-        return;
-    }
+    // if (childWindow) {
+    //     childWindow.focus();
+    //     return;
+    // }
 
-    childWindow = new BrowserWindow({
+    let childWindow = new BrowserWindow({
         width: 600,
         height: 400,
         // parent: mainWindow || undefined, // 可选：让子窗口依附主窗口
@@ -73,7 +73,7 @@ const createChildWindow = (route: string) => {
     });
 
     childWindow.on("closed", () => {
-        childWindow = null;
+        childWindow = null as any;
     });
 };
 
