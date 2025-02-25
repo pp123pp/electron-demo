@@ -1,9 +1,15 @@
 import { useWeb3DStore } from "@renderer/store/Web3D";
 import CONSTANTS from "@renderer/web3D/CONSTANTS";
-import { memo, useCallback, useEffect, useState } from "react";
+import { CSSProperties, memo, useCallback, useEffect, useState } from "react";
 import { Wrapper } from "./style";
 
-export default memo(function Footer() {
+export default memo(function Footer({
+    style,
+    className,
+}: {
+    style?: CSSProperties;
+    className?: string;
+}) {
     const [cameraParams, setCameraParams] = useState({
         position: [0, 0, 0],
         pitch: 0,
@@ -31,8 +37,8 @@ export default memo(function Footer() {
     }, [camera]);
 
     return (
-        <Wrapper>
-            <div className="info">
+        <Wrapper style={{ ...style }}>
+            <div className={`info ${className || ""}`}>
                 相机位置:X:{cameraParams.position[0]} Y:
                 {cameraParams.position[1]} Z:{cameraParams.position[2]}
             </div>

@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
     display: flex;
     height: 100%;
     background-color: #2f3034;
+    pointer-events: all;
     .item {
         width: 105px;
         margin: 0 10px;

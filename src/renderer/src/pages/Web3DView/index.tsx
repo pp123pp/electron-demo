@@ -15,12 +15,24 @@ export default memo(function Web3DView() {
     }, [container.current]);
 
     return (
-        <Web3DWrapper>
-            <div className="container" ref={container}>
-                <div className="header">
-                    <Header />
-                </div>
-                <Footer />
+        <Web3DWrapper ref={container}>
+            <div className="panel">
+                <Header
+                    style={{
+                        height: "40px",
+                    }}
+                />
+                <div
+                    className="subMenu"
+                    style={{
+                        pointerEvents: "auto",
+                    }}
+                ></div>
+                <Footer
+                    style={{
+                        height: "30px",
+                    }}
+                />
             </div>
         </Web3DWrapper>
     );

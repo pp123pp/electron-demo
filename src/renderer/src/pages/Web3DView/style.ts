@@ -4,24 +4,22 @@ export const Web3DWrapper = styled.div`
     height: 100vh;
     color: #fff;
 
-    .container {
+    .panel {
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
         height: 100%;
-        background-color: greenyellow; /* 半透明背景 */
-        .header {
-            height: 40px;
-            position: absolute;
-            z-index: 99;
-            width: 100%;
-            .subMenu {
-                width: 280px;
-                height: calc(100% - 70px);
-                position: absolute;
-                transition: right 0.4slinear;
-                right: 0;
-                top: 40px;
-                background-color: rgba(37, 38, 42, 0.9);
-                z-index: 1;
-            }
+        pointer-events: none;
+
+        .subMenu {
+            flex: 1;
+            align-self: flex-end;
+            background: rgba(0, 0, 0, 0.5);
+            width: 300px;
+            pointer-events: "auto";
         }
     }
 `;
