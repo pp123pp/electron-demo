@@ -2,6 +2,8 @@ import VEngine from "@renderer/assets/build/VEngine.module";
 import { useWeb3DStore } from "@renderer/store/Web3D";
 import CONSTANTS from "./CONSTANTS";
 
+(window as any).ENGINE_BASE_URL = import.meta.env.VITE_ENGINE_BASE_URL;
+
 export default class InitWeb3D {
     viewer: VEngine.Viewer;
     eventHandler: VEngine.ScreenSpaceEventHandler;
@@ -13,6 +15,8 @@ export default class InitWeb3D {
             baseUrl: "http://model-parser-server-fat.vanke.com/model-parser2",
             env: "fat",
         });
+
+        this.viewer._autoResize = false;
 
         CONSTANTS.viewer = this.viewer;
         CONSTANTS.scene = this.viewer.scene;
@@ -39,7 +43,7 @@ export default class InitWeb3D {
 
         let model = new VEngine.Model({
             useDefaultView: false,
-            url: "http://localhost:8888/model/header.json",
+            url: "https://dc-file-dev.obs.cn-south-1.myhuaweicloud.com/capacity-model/models_0730/P0001-01/041-gz/header.json",
         });
 
         let viewer = this.viewer;

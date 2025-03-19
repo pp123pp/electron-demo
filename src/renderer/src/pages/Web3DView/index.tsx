@@ -1,3 +1,6 @@
+import { DndContext } from "@dnd-kit/core";
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
+import LayerManagement from "@renderer/components/LayerManagement";
 import Footer from "@renderer/components/Viewer3D/Footer";
 import Header from "@renderer/components/Viewer3D/Header";
 import InitWeb3D from "@renderer/web3D/InitWeb3D";
@@ -15,25 +18,22 @@ export default memo(function Web3DView() {
     }, [container.current]);
 
     return (
-        <Web3DWrapper ref={container}>
-            <div className="panel">
-                <Header
-                    style={{
-                        height: "40px",
-                    }}
-                />
-                <div
-                    className="subMenu"
-                    style={{
-                        pointerEvents: "auto",
-                    }}
-                ></div>
-                <Footer
-                    style={{
-                        height: "30px",
-                    }}
-                />
+        <Web3DWrapper>
+            <Header
+                style={{
+                    height: "40px",
+                }}
+            />
+            <div ref={container} className="container">
+                <DndContext modifiers={[restrictToWindowEdges]}>
+                    <LayerManagement />
+                </DndContext>
             </div>
+            <Footer
+                style={{
+                    height: "30px",
+                }}
+            />
         </Web3DWrapper>
     );
 });
