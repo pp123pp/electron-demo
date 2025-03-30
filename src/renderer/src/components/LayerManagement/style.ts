@@ -1,12 +1,36 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    z-index: 10;
+    /* z-index: 10; */
     width: 315px;
     height: 470px;
     background-color: rgba(0, 0, 0, 0.5);
 
-    cursor: pointer;
+    .title {
+        height: 30px;
+        background: #1b1b1b;
+        font-size: 14px;
+        line-height: 30px;
 
-    position: absolute;
+        padding: 0 10px;
+
+        display: flex;
+        justify-content: space-between;
+
+        cursor: pointer;
+
+        .right {
+            display: flex;
+            .icon {
+                cursor: pointer;
+                margin: 0 5px;
+            }
+        }
+    }
+
+    .content {
+        height: 100%;
+    }
 `;
+
+export const TitleWrapper = styled.div``;

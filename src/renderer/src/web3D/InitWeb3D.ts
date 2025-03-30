@@ -18,6 +18,12 @@ export default class InitWeb3D {
 
         this.viewer._autoResize = false;
 
+        const resizeObserver = new ResizeObserver((entries) => {
+            this.viewer.autoResize();
+        });
+
+        resizeObserver.observe(container);
+
         CONSTANTS.viewer = this.viewer;
         CONSTANTS.scene = this.viewer.scene;
         CONSTANTS.camera = this.viewer.camera;
