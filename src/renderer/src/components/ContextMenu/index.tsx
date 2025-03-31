@@ -14,8 +14,8 @@ export default memo(function ({
     style,
 }: {
     style?: CSSProperties;
-    className: string;
-    children: ReactNode;
+    className?: string;
+    children?: ReactNode;
     menuItems: MenuItem[];
 }) {
     const [menu, setMenu] = useState({ visible: false, x: 0, y: 0 });
@@ -26,10 +26,11 @@ export default memo(function ({
 
     const handleContextMenu = (e: MouseEvent) => {
         e.preventDefault();
+        console.log(e.pageX, e.pageY);
         setMenu({
             visible: true,
             x: e.pageX,
-            y: e.pageX,
+            y: e.pageY - (e.target as HTMLDivElement).offsetTop,
         });
     };
 
@@ -48,14 +49,10 @@ export default memo(function ({
             {children}
             {menu.visible && (
                 <div
+                    className="menu"
                     style={{
-                        position: "absolute",
                         left: menu.x,
                         top: menu.y,
-                        backgroundColor: "white",
-                        border: "1px solid #ccc",
-                        boxShadow: "2px 2px 10px rgba(0,0,0,0.1)",
-                        zIndex: 1000,
                     }}
                 >
                     <ul>

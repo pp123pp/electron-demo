@@ -1,7 +1,4 @@
-import { DndContext } from "@dnd-kit/core";
-import { restrictToParentElement } from "@dnd-kit/modifiers";
 import { Coordinates } from "@dnd-kit/utilities";
-import { Draggable } from "@renderer/components/Draggable";
 import LayerManagement from "@renderer/components/LayerManagement";
 import Footer from "@renderer/components/Viewer3D/Footer";
 import Header from "@renderer/components/Viewer3D/Header";
@@ -35,7 +32,7 @@ export default memo(function Web3DView() {
                 }}
             />
             <div ref={container} className="container">
-                <DndContext
+                {/* <DndContext
                     modifiers={[restrictToParentElement]}
                     onDragEnd={({ delta }) => {
                         console.log(delta);
@@ -50,7 +47,8 @@ export default memo(function Web3DView() {
                     <Draggable>
                         <LayerManagement style={{ left: x, top: y }} />
                     </Draggable>
-                </DndContext>
+                </DndContext> */}
+                <LayerManagement style={{}} />
             </div>
             <Footer
                 style={{

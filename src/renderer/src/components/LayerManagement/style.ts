@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
     width: 315px;
     height: 470px;
     background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 1;
 
     .title {
         height: 30px;
@@ -28,8 +30,11 @@ export const Wrapper = styled.div`
         }
     }
 
-    .content {
+    .contextMenu {
         height: 100%;
+        .content {
+            height: 100%;
+        }
     }
 `;
 

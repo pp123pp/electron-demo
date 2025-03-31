@@ -6,6 +6,7 @@ import {
 } from "@ant-design/icons";
 import classNames from "classnames";
 import { CSSProperties, memo } from "react";
+import ContextMenu from "../ContextMenu";
 import { Wrapper } from "./style";
 
 export default memo(function ({
@@ -19,10 +20,7 @@ export default memo(function ({
     const handleAction2 = () => alert("区域 1 的选项 2 被点击");
 
     return (
-        <Wrapper
-            style={style}
-            className={classNames(className)}
-        >
+        <Wrapper style={style} className={classNames(className)}>
             <div className="title">
                 <div className="left">
                     <UnorderedListOutlined /> 图层
@@ -33,16 +31,15 @@ export default memo(function ({
                     <CloseOutlined className="icon" />
                 </div>
             </div>
-            {/* <ContextMenu
+            <ContextMenu
+                className="contextMenu"
                 menuItems={[
                     { label: "选项 1", action: handleAction1 },
                     { label: "选项 2", action: handleAction2 },
                 ]}
             >
-                
-            </ContextMenu> */}
-
-            <div className="content">{/* <LayerTree /> */}</div>
+                <div className="content">{/* <LayerTree /> */}</div>
+            </ContextMenu>
         </Wrapper>
     );
 });
