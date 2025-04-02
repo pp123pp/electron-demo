@@ -19,12 +19,11 @@ export const Wrapper = styled.div`
         display: flex;
         justify-content: space-between;
 
-        cursor: pointer;
+        cursor: move;
 
         .right {
             display: flex;
             .icon {
-                cursor: pointer;
                 margin: 0 5px;
             }
         }

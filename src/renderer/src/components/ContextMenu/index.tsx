@@ -26,17 +26,17 @@ export default memo(function ({
 
     const handleContextMenu = (e: MouseEvent) => {
         e.preventDefault();
-        console.log(e.pageX, e.pageY);
         setMenu({
             visible: true,
             x: e.pageX,
-            y: e.pageY - (e.target as HTMLDivElement).offsetTop,
+            y: e.pageY,
         });
     };
 
     const handleMenuItemClick = (item: MenuItem) => {
         item.action(); // 执行菜单项的操作
         setMenu({ ...menu, visible: false });
+        // setMenu({ ...menu, visible: true });
     };
 
     return (
@@ -57,12 +57,12 @@ export default memo(function ({
                 >
                     <ul>
                         {menuItems.map((item, index) => (
-                            <div
+                            <li
                                 key={index}
                                 onClick={() => handleMenuItemClick(item)}
                             >
-                                {item.label}
-                            </div>
+                                <span>{item.label}</span>
+                            </li>
                         ))}
                     </ul>
                 </div>

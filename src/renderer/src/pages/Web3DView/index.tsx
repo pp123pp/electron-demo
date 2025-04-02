@@ -1,4 +1,3 @@
-import { Coordinates } from "@dnd-kit/utilities";
 import LayerManagement from "@renderer/components/LayerManagement";
 import Footer from "@renderer/components/Viewer3D/Footer";
 import Header from "@renderer/components/Viewer3D/Header";
@@ -14,9 +13,6 @@ const defaultCoordinates = {
 export default memo(function Web3DView() {
     const container = useRef<HTMLDivElement>(null);
     const [initViewer, setInitViewer] = useState(true);
-
-    const [{ x, y }, setCoordinates] =
-        useState<Coordinates>(defaultCoordinates);
 
     useEffect(() => {
         setInitViewer(false);
