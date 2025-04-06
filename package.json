@@ -25,12 +25,14 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^4.0.0",
+    "@tailwindcss/vite": "^4.1.2",
     "antd": "^5.24.1",
     "classnames": "^2.5.1",
     "normalize.css": "^8.0.1",
     "react-activation": "^0.13.0",
     "react-router-dom": "6.14.2",
     "styled-components": "^6.1.15",
+    "tailwindcss": "^4.1.2",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

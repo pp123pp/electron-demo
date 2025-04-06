@@ -3,7 +3,6 @@ import Footer from "@renderer/components/Viewer3D/Footer";
 import Header from "@renderer/components/Viewer3D/Header";
 import InitWeb3D from "@renderer/web3D/InitWeb3D";
 import { memo, useEffect, useRef, useState } from "react";
-import { Web3DWrapper } from "./style";
 
 const defaultCoordinates = {
     x: 0,
@@ -21,13 +20,13 @@ export default memo(function Web3DView() {
     }, [container.current]);
 
     return (
-        <Web3DWrapper>
+        <div className="h-screen flex flex-col justify-between text-white">
             <Header
                 style={{
                     height: "40px",
                 }}
             />
-            <div ref={container} className="container">
+            <div ref={container} className="w-full h-full flex bg--black-50">
                 {/* <DndContext
                     modifiers={[restrictToParentElement]}
                     onDragEnd={({ delta }) => {
@@ -44,13 +43,13 @@ export default memo(function Web3DView() {
                         <LayerManagement style={{ left: x, top: y }} />
                     </Draggable>
                 </DndContext> */}
-                <LayerManagement style={{}} />
+                <LayerManagement />
             </div>
             <Footer
                 style={{
                     height: "30px",
                 }}
             />
-        </Web3DWrapper>
+        </div>
     );
 });
