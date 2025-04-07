@@ -61,37 +61,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-// import DataTransform from "@renderer/pages/DataTransform";
-// import Web3DView from "@renderer/pages/Web3DView";
-// import { Tabs } from "antd";
-// import React from "react";
-// import { TabsWrapper } from "./style";
-
-// const items = [
-//     {
-//         label: "Web3DView",
-//         key: "1",
-//         children: <Web3DView />,
-//     },
-//     {
-//         label: "数据处理",
-//         key: "2",
-//         children: <DataTransform />,
-//     },
-// ];
-
-// const App: React.FC = () => {
-//     return (
-//         <TabsWrapper>
-//             <Tabs
-//                 defaultActiveKey="1"
-//                 tabPosition="left"
-//                 style={{ height: "100vh" }}
-//                 items={items}
-//             />
-//         </TabsWrapper>
-//     );
-// };
-
-// export default App;

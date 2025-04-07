@@ -1,7 +1,6 @@
 import { useWeb3DStore } from "@renderer/store/Web3D";
 import CONSTANTS from "@renderer/web3D/CONSTANTS";
 import { CSSProperties, memo, useCallback, useEffect, useState } from "react";
-import { Wrapper } from "./style";
 
 export default memo(function Footer({
     style,
@@ -37,17 +36,16 @@ export default memo(function Footer({
     }, [camera]);
 
     return (
-        <Wrapper style={{ ...style }}>
-            <div className={`info ${className || ""}`}>
+        <div
+            style={{ ...style }}
+            className="flex border-white bg-[#2f3034] box-border"
+        >
+            <div className={`footerItem ${className || ""}`}>
                 相机位置:X:{cameraParams.position[0]} Y:
                 {cameraParams.position[1]} Z:{cameraParams.position[2]}
             </div>
-            <div className="info">俯仰角:{cameraParams.pitch} rad</div>
-            <div className="info">偏航角:{cameraParams.heading} rad</div>
-            {/* <div className="info">
-                鼠标位置:{worldPosition[0]}, {worldPosition[1]},{" "}
-                {worldPosition[2]}
-            </div> */}
-        </Wrapper>
+            <div className="footerItem">俯仰角:{cameraParams.pitch} rad</div>
+            <div className="footerItem">偏航角:{cameraParams.heading} rad</div>
+        </div>
     );
 });

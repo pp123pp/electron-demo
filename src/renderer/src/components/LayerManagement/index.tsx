@@ -27,7 +27,7 @@ export default memo(function ({
                     width: "315px",
                     height: "470px",
                 }}
-                className={`${classNames(className)} bg-black-50 absolute z-1`}
+                className={`${classNames(className || "")} flex flex-col bg-black-50 absolute z-1`}
             >
                 <div className="flex justify-between h-[30px] bg-[#1b1b1b] text-14 cursor-move px-2">
                     <div className="flex justify-center items-center">
@@ -40,13 +40,13 @@ export default memo(function ({
                     </div>
                 </div>
                 <ContextMenu
-                    className="contextMenu"
+                    className="flex-1"
                     menuItems={[
                         { label: "选项 1", action: handleAction1 },
                         { label: "选项 2", action: handleAction2 },
                     ]}
                 >
-                    <div className="content"></div>
+                    <div className="h-full"></div>
                 </ContextMenu>
             </div>
         </DndContext>

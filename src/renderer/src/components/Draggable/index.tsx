@@ -1,5 +1,4 @@
 import { useDraggable } from "@dnd-kit/core";
-import { Wrapper } from "./style";
 
 export function Draggable(props) {
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
@@ -18,8 +17,14 @@ export function Draggable(props) {
         : undefined;
 
     return (
-        <Wrapper ref={setNodeRef} style={style} {...listeners} {...attributes}>
+        <div
+            className="absolute z-10"
+            ref={setNodeRef}
+            style={style}
+            {...listeners}
+            {...attributes}
+        >
             {props.children}
-        </Wrapper>
+        </div>
     );
 }

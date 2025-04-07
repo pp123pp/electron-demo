@@ -3,3 +3,42 @@
 @theme {
     --color-black-50: rgba(0, 0, 0, 0.5);
 }
+
+@layer components {
+    .header-item {
+        width: 105px;
+        margin: 0 10px;
+        display: flex;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        transition:
+            color 0.3s ease,
+            background-color 0.3s ease;
+    }
+
+    .header-menu:hover {
+        color: #5788ff;
+        background: linear-gradient(
+            180deg,
+            rgba(87, 136, 255, 0),
+            rgba(87, 136, 255, 0.26) 100%,
+            #5788ff 0
+        );
+    }
+
+    .footerItem {
+        padding: 0 10px;
+
+        color: #fff;
+        border-right: 1px solid #fff;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
