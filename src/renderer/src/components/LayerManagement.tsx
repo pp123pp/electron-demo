@@ -5,8 +5,10 @@ import {
     UnorderedListOutlined,
 } from "@ant-design/icons";
 import { DndContext } from "@dnd-kit/core";
+import { restrictToParentElement } from "@dnd-kit/modifiers";
 import classNames from "classnames";
 import { CSSProperties, memo } from "react";
+import { DraggableStory } from "./1-Draggable.story";
 import ContextMenu from "./ContextMenu";
 
 export default memo(function ({
@@ -39,6 +41,7 @@ export default memo(function ({
                         <CloseOutlined className="icon" />
                     </div>
                 </div>
+                <DraggableStory modifiers={[restrictToParentElement]} />
                 <ContextMenu
                     className="flex-1"
                     menuItems={[
