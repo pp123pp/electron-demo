@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { CSSProperties, memo, MouseEvent, ReactNode, useState } from "react";
-import { Wrapper } from "./style";
 
 interface MenuItem {
     label: string;
@@ -40,24 +39,24 @@ export default memo(function ({
     };
 
     return (
-        <Wrapper
-            style={style}
-            className={classNames(className)}
+        <div
+            className={`${classNames(className)} col-block`}
             onClick={handleClick}
             onContextMenu={handleContextMenu}
         >
             {children}
             {menu.visible && (
                 <div
-                    className="menu"
+                    className="w-[200px] fixed bg-[#292a2e] text-[#e6e6e6] rounded-sm"
                     style={{
                         left: menu.x,
                         top: menu.y,
                     }}
                 >
-                    <ul>
+                    <ul className="p-0 m-0">
                         {menuItems.map((item, index) => (
                             <li
+                                className="m-0 text-left cursor-pointer h-[30px]  hover:bg-[#3d3d3d]"
                                 key={index}
                                 onClick={() => handleMenuItemClick(item)}
                             >
@@ -67,6 +66,6 @@ export default memo(function ({
                     </ul>
                 </div>
             )}
-        </Wrapper>
+        </div>
     );
 });

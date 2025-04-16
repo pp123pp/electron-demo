@@ -7,7 +7,7 @@ import {
 import { DndContext } from "@dnd-kit/core";
 import classNames from "classnames";
 import { CSSProperties, memo } from "react";
-import ContextMenu from "../ContextMenu";
+import ContextMenu from "./ContextMenu";
 
 export default memo(function ({
     style,

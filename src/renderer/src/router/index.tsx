@@ -3,7 +3,7 @@ import { createHashRouter } from "react-router-dom";
 
 // 懒加载页面组件
 const Layout = lazy(() => import("./../components/Layout"));
-const Home = lazy(() => import("./../components/Home"));
+const Home = lazy(() => import("../components/Home"));
 const DataTransform = lazy(() => import("./../pages/DataTransform"));
 const Web3DView = lazy(() => import("./../pages/Web3DView"));
 

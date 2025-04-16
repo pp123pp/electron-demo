@@ -4,11 +4,6 @@ import Header from "@renderer/components/Viewer3D/Header";
 import InitWeb3D from "@renderer/web3D/InitWeb3D";
 import { memo, useEffect, useRef, useState } from "react";
 
-const defaultCoordinates = {
-    x: 0,
-    y: 0,
-};
-
 export default memo(function Web3DView() {
     const container = useRef<HTMLDivElement>(null);
     const [initViewer, setInitViewer] = useState(true);
@@ -27,22 +22,6 @@ export default memo(function Web3DView() {
                 }}
             />
             <div ref={container} className="w-full h-full flex bg--black-50">
-                {/* <DndContext
-                    modifiers={[restrictToParentElement]}
-                    onDragEnd={({ delta }) => {
-                        console.log(delta);
-                        setCoordinates(({ x, y }) => {
-                            return {
-                                x: x + delta.x,
-                                y: y + delta.y,
-                            };
-                        });
-                    }}
-                >
-                    <Draggable>
-                        <LayerManagement style={{ left: x, top: y }} />
-                    </Draggable>
-                </DndContext> */}
                 <LayerManagement />
             </div>
             <Footer
